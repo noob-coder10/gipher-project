@@ -1,0 +1,42 @@
+.gifs {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+}
+@media screen and (max-width: 992px) {
+  .gifs {
+    grid-template-columns: auto auto auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .gifs {
+    grid-template-columns: auto auto;
+  }
+}
+
+#cards img {
+  max-width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+.gif {
+  margin: 20px;
+  border-radius: 10px;
+}
+#image:hover {
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.top {
+  background-color: rgb(215 208 208);
+}
+.full {
+  background-color: rgb(215 208 208);
+}

@@ -1,0 +1,172 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+  <a class="navbar-brand" routerLink="/"
+    ><img class="logo" src="../../assets/logo.png"
+  /></a>
+  <a class="navbar-brand" routerLink="/">Gipher App</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          routerLink="/"
+          *ngIf="!isLoggedIn"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          (click)="trendingGifs()"
+          *ngIf="isLoggedIn"
+          >Trending</a
+        >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Popular GIFs
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <button class="dropdown-item" (click)="search('Reaction')">
+              Reaction
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item" (click)="search('Entertainment')">
+              Entertainment
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item" (click)="search('Sports')">
+              Sports
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item" (click)="search('Stickers')">
+              Stickers
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="d-flex" role="search">
+      <input
+        type="text"
+        class="form-control me-2"
+        placeholder="Search for GIFs"
+        #gif
+        (keyup.enter)="search(gif.value)"
+      />
+      <button
+        mat-icon-button
+        matTooltip="Search"
+        class="btn btn-outline-primary my-2 my-sm-0 m-2 text-light"
+        (click)="search(gif.value)"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+    <button
+      routerLink="/login"
+      class="btn btn-outline-primary my-2 my-sm-0 m-2 text-light"
+      *ngIf="!isLoggedIn"
+    >
+      LOG IN
+    </button>
+    <button
+      routerLink="/signup"
+      class="btn btn-outline-primary my-2 my-sm-0 m-2 text-light"
+      *ngIf="!isLoggedIn"
+    >
+      SIGN IN
+    </button>
+
+    <div class="dropdown" *ngIf="isLoggedIn && user" style="margin-right: 10%">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        {{ login.getUser().username }}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+          <button class="dropdown-item" routerLink="/favourites">
+            Wishlist
+          </button>
+        </li>
+        <li>
+          <button class="dropdown-item" routerLink="/profile">
+            Edit Profile
+          </button>
+        </li>
+        <li>
+          <button class="dropdown-item" routerLink="/changePassword">
+            Change Password
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="btn btn-primary model dropdown-item"
+            (click)="openPopup()"
+          >
+            Log out
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="modal"
+      tabindex="-1"
+      role="dialog"
+      [ngStyle]="{ display: displayStyle }"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <h3>Do you really want to Log out?</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="logout()">
+              Yes, Log out
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="closePopup()"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

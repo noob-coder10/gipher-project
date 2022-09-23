@@ -1,0 +1,16 @@
+a {
+  cursor: pointer;
+  color: white;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+}
+
+a:hover {
+  font-size: large;
+}
+.navbar-brand:hover {
+  font-size: 25px;
+}

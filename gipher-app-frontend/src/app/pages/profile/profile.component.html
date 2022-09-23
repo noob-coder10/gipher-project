@@ -1,0 +1,66 @@
+<body>
+  <div class="full">
+    <mat-card>
+      <h1 class="text-center">Update Profile</h1>
+
+      <form (ngSubmit)="formSubmit()">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            required
+            [(ngModel)]="user.firstname"
+            name="firstname"
+            matInput
+            placeholder="Enter here"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            required
+            [(ngModel)]="user.lastname"
+            name="lastname"
+            type="email"
+            matInput
+            placeholder="Enter here"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            required
+            [(ngModel)]="user.email"
+            name="email"
+            matInput
+            placeholder="Enter here"
+            disabled
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input
+            required
+            [(ngModel)]="user.phone"
+            name="phone"
+            matInput
+            placeholder="Enter here"
+          />
+        </mat-form-field>
+
+        <div class="container text-center">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            style="margin-right: 20px"
+          >
+            Update Changes
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</body>

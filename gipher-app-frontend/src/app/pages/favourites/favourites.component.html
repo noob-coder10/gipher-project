@@ -1,0 +1,18 @@
+<body>
+  <div class="full">
+    <div class="gifs top">
+      <mat-card id="cards" class="gif" *ngFor="let gif of gifs">
+        <img [src]="gif.imageURL" alt="Image" id="image" />
+        <h2 class="card-title" style="margin: 10px">{{ gif.title }}</h2>
+        <button
+          mat-stroked-button
+          color="warn"
+          class="mx-auto"
+          (click)="onClickUnfavourites(gif)"
+        >
+          Unfavourite
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</body>

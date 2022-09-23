@@ -1,0 +1,16 @@
+<body>
+  <section id="home">
+    <h1 class="h-primary">Welcome to Gipher App !</h1>
+    <p>
+      "GipherApp" is on interface search engine for GIFs and short looping videos with no sound.
+    </p>
+    <p>
+      This makes watching and sharing GIFs lot more fun!
+    </p>
+    <button class="btn" routerLink="/login" *ngIf="!isLoggedIn">
+      Login Here
+    </button>
+    <button class="btn" routerLink="/gif" *ngIf="isLoggedIn">Home</button>
+  </section>
+</body>
+<app-footer></app-footer>
