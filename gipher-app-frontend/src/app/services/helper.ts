@@ -1,4 +1,4 @@
-export let baseUrl = "http://localhost:8080";
+export let baseUrl = "http://localhost:8090";
 
 export let favouriteUrl = "http://localhost:8082";
 
